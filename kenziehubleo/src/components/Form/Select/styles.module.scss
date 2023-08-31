@@ -1,0 +1,24 @@
+.Div {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    select {
+        padding: 8px 12px;
+        border-radius: 4px;
+        background-color: var(--color-grey-2);
+        font-size: 1rem;
+        border: 1px solid var(--color-grey-1);
+        color: var(--color-grey-1);
+        cursor: pointer;
+
+        &:disabled {
+            opacity: 0.9;
+        }
+    }
+
+    option {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+    }
+}

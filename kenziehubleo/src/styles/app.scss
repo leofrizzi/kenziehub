@@ -1,0 +1,19 @@
+@import url("./reset.scss");
+@import url("./globalStyles.scss");
+
+
+body {
+    display: flex;
+    min-width: calc(100dvw - 7px);
+    min-height: 100dvh;
+    background-color: var(--color-grey-4);
+
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
+}

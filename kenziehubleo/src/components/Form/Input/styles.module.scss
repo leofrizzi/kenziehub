@@ -1,0 +1,31 @@
+.Div {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    &>p {
+        color: var(--color-primary);
+    }
+
+    input {
+        background-color: var(--color-grey-2);
+        border: 1px solid var(--color-grey-1);
+        border-radius: 4px;
+        padding: 8px 12px;
+        color: var(--color-grey-0);
+        font-size: 1rem;
+        outline: none;
+
+        &:disabled {
+            opacity: 0.9;
+        }
+
+        &::placeholder {
+            color: #a8a8a8;
+        }
+
+        &:focus {
+            border-color: var(--color-primary);
+        }
+    }
+}
