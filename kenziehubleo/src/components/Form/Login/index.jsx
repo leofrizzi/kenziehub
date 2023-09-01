@@ -3,25 +3,28 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Input } from "../Input/index";
 import styles from "./styles.module.scss";
-import { toast } from "react-toastify";
 import { zodResolver as formResolver } from '@hookform/resolvers/zod';
 import { LoginRequirements } from "./LoginRequirements";
 import { InputSenha } from "../InputSenha";
-import { api } from "../../../services/api";
+import { useContext } from "react";
+import { UserContext } from "../../../providers/UserContext";
 
-export const LoginForm = ({ setDataUser }) => {
+export const LoginForm = () => {
+    const { performUserLogin, isLoading } = useContext(UserContext);
+   
     const {
         register,
         handleSubmit,
         formState: { errors },
+        reset,
     } = useForm({
         resolver: formResolver(LoginRequirements),
     });
 
-    const [isLoading, setIsLoading] = useState(false);
-
     const submit = async (formData) => {
+        console.log(formData)
         await performUserLogin(formData);
+        reset();
     };
 
     const navigate = useNavigate();
@@ -30,28 +33,6 @@ export const LoginForm = ({ setDataUser }) => {
         setTimeout(() => {
             navigate("/register");
         }, 1000);
-    };
-
-    const performUserLogin = async (formData) => {
-        try {
-            setIsLoading(true);
-            const { data } = await api.post("/sessions", formData);
-            setDataUser(data.user);
-            localStorage.setItem("@KenzieHub:userToken", JSON.stringify(data.token));
-            toast.success("Login efetuado!");
-            setTimeout(() => {
-                navigate("/dashboard");
-            }, 1000);
-        } catch (error) {
-            if (
-                error.response?.data.message ===
-                "Incorrect email / password combination"
-            ) {
-                toast.error("Email e/ou senha incorretos!");
-            }
-        } finally {
-            setIsLoading(false);
-        }
     };
 
     return (

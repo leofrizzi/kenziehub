@@ -2,18 +2,17 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { Input } from "../Input/index";
 import styles from "./styles.module.scss";
-import { toast } from "react-toastify";
 import { Select } from "../Select";
 import { InputSenha } from "../InputSenha";
 import { zodResolver as formResolver } from '@hookform/resolvers/zod';
 import { registerRequirements } from "./RegisterRequirements";
-import { useNavigate } from "react-router-dom";
 import { TextArea } from "../TextArea";
-import { api } from "../../../services/api";
+import { useContext } from "react";
+import { UserContext } from "../../../providers/UserContext";
 
 export const RegisterForm = () => {
+    const { registerUser } = useContext(UserContext);
     const [isLoading, setIsLoading] = useState(false);
-    const navigate = useNavigate();
 
     const {
         register,
@@ -23,26 +22,9 @@ export const RegisterForm = () => {
         resolver: formResolver(registerRequirements),
     });
 
-    const submit = (formData) => {
-        registerUser(formData);
-    };
-
-    const registerUser = async (formData) => {
-        try {
-            setIsLoading(true);
-            await api.post("/users", formData);
-            toast.success("Cadastro Efetuado! Voltando para o login...");
-            setTimeout(() => {
-                navigate("/");
-            }, 3000);
-        } catch (error) {
-            if (error.response?.data.message === "Email already exists") {
-                toast.error("Email já cadastrado!");
-            }
-        } finally {
-            setIsLoading(false);
-        }
-    };
+    const submit = async (formData) => {
+        await registerUser(formData);
+      };
 
     return (
         <div className={styles.Div}>
