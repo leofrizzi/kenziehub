@@ -1,0 +1,46 @@
+.li {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-grey-4);
+    justify-content: space-evenly;
+    height: 80px;
+    border-radius: 4px;
+    padding: 0 16px;
+
+    .P {
+        color: var(--color-grey-1);
+    }
+
+    .Div1 {
+        display: flex;
+    }
+
+    .P {
+        font-family: var(--font-primary);
+    }
+
+    .Div2 {
+        display: flex;
+    }
+
+    .Button1 {
+        color: aliceblue;
+    }
+
+    .Button2 {
+        color: aliceblue;
+    }
+}
+
+.Div2 {
+    display: flex;
+    gap: 16px;
+
+    button {
+        max-height: fit-content;
+        color: var(--color-white);
+        background-color: var(--color-grey-4);
+        border-radius: 4px;
+        padding: 5px;
+    }
+}

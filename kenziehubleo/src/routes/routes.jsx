@@ -7,6 +7,7 @@ import { RegisterPage } from "../pages/RegisterPage";
 import { Dashboard } from "../pages/DashboardPage";
 import { LoginPage } from "../pages/LoginPage";
 import { Navigate } from 'react-router-dom';
+import { TechProvider } from '../providers/TechContext';
 
 const AppRoutes = () => {
     const [dataUser, setDataUser] = useState(null);
@@ -23,18 +24,11 @@ const AppRoutes = () => {
             <Route path="/register" element={<RegisterPage />} />
             <Route
                 path="/dashboard"
-                element={<Dashboard dataUser={dataUser} logout={logout} />}
+                element={<TechProvider><Dashboard dataUser={dataUser} logout={logout} />
+                </TechProvider>}
             />
-            {/* <ToastContainer /> */}
         </Routes>
     );
 };
-
-// const root = createRoot(document.getElementById('root'));
-// root.render(
-//     <React.StrictMode>
-//         <AppRoutes />
-//     </React.StrictMode>
-// );
 
 export default AppRoutes;

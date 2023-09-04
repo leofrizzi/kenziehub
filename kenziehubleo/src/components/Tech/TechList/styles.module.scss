@@ -1,0 +1,118 @@
+.Div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 8px;
+
+    .H2 {
+        font-family: var(--font-primary);
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--color-grey-0);
+        line-height: 150%;
+    }
+
+    p {
+        color: var(--color-grey-1);
+    }
+
+    button {
+        padding: 4px;
+        border-radius: 4px;
+        background-color: var(--color-grey-2);
+        width: 32px;
+        height: 32px;
+
+        svg {
+            color: #fff;
+        }
+    }
+
+    .Section {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+        padding: 0 14px;
+        margin-bottom: 48px;
+
+        .Div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .H1 {
+            font: var(--font-primary);
+        }
+
+        button {
+            padding: 4px;
+            border-radius: 4px;
+            background-color: var(--color-grey-2);
+            width: 32px;
+            height: 32px;
+
+            svg {
+                color: #fff;
+            }
+        }
+    }
+
+    @media (min-width: 1024px) {
+        padding-left: calc((100vw - 1024px) / 2 + 14px);
+        padding-right: calc((100vw - 1024px) / 2 + 14px);
+    }
+
+    ul {
+        background-color: var(--color-grey-2);
+        padding: 16px 12px;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        @media (min-width: 1024px) {
+            padding: 24px;
+            gap: 16px;
+        }
+    }
+}
+
+.Section {
+    padding: 0 14px;
+    margin-bottom: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+
+    ul {
+        background-color: var(--color-grey-2);
+        padding: 16px 12px;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        list-style: none;
+    }
+
+    li {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--color-grey-4);
+        justify-content: space-evenly;
+        height: 80px;
+        border-radius: 4px;
+        padding: 0 16px;
+    }
+
+    p {
+        font-family: var(--font-primary);
+        font-size: 1rem;
+        font-weight: 400;
+        color: var(--color-grey-0);
+        line-height: 150%;
+    }
+}
